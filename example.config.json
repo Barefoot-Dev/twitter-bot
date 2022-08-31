@@ -1,0 +1,9 @@
+{
+  "max_search_results": 10,
+  "accounts": {
+    "<account>": {
+      "handle": "",
+      "search_terms": [""]
+    }
+  }
+}
