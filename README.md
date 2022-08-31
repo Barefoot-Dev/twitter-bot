@@ -1,0 +1,1 @@
+Create and fill a credentials.json file before running main.py

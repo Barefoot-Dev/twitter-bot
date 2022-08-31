@@ -1,0 +1,26 @@
+{
+  "max_search_results": 10,
+  "accounts": {
+    "art_academy": {
+      "handle": "the_art_academy",
+      "search_terms": [
+        "#dalle",
+        "ai-art",
+        "DALLE-2",
+        "stablediffusion",
+        "stabilityai"
+      ]
+    },
+    "barefootdev": {
+      "handle": "BarefootDev",
+      "search_terms": [
+        "zenacademy",
+        "gen-art",
+        "generative art",
+        "on-chain art",
+        "ai-art",
+        "solidity"
+      ]
+    }
+  }
+}
