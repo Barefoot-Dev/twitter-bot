@@ -11,11 +11,6 @@ with open("./config.json") as f:
 with open("./credentials.json") as f:
     credentials = json.load(f)
 
-"""
-python main.py -a barefootdev
-python main.py -a art_academy
-"""
-
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
@@ -34,6 +29,8 @@ if __name__ == "__main__":
     TWITTER_HANDLE = config["accounts"][account]["handle"]
     SEARCH_TERMS = config["accounts"][account]["search_terms"]
     MAX_SEARCH_RESULTS = config["max_search_results"]
+    MIN_FOLLOWERS = config["min_followers"]
+    MIN_FOLLOWING = config["min_following"]
 
     tweepy_auth = tweepy.OAuthHandler(API_KEY, API_SECRET)
     tweepy_auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
@@ -53,11 +50,11 @@ if __name__ == "__main__":
                     if t.text[0:2] != "RT":  
                         # accounts with more followers are more valuable to follow
                         if (
-                            t.author.followers_count > 500
+                            t.author.followers_count > MIN_FOLLOWERS
                         ):  
                             # accounts with more friends (follows) more likely to follow back
                             if (
-                                t.author.friends_count > 1000
+                                t.author.friends_count > MIN_FOLLOWING
                             ):  
 
                                 friendship = api.get_friendship(

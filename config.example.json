@@ -1,5 +1,7 @@
 {
   "max_search_results": 10,
+  "min_followers": 500,
+  "min_following": 1000,
   "accounts": {
     "<account>": {
       "handle": "",
