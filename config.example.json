@@ -5,7 +5,8 @@
   "accounts": {
     "<account>": {
       "handle": "",
-      "search_terms": [""]
+      "search_terms": [],
+      "dont_unfollow": []
     }
   }
 }

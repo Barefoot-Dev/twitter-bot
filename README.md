@@ -11,4 +11,9 @@ Create and fill a credentials.json and config.json, based on the example file of
 
 In this package, each 'account' has a corresponding twitter handle, credentials, and config entry. 
 
+### Follow accounts based on search terms in the config:
 `python main.py -a <account`>
+
+
+### Unfollow accounts:
+`python unfollow.py -a <account>`
