@@ -1,4 +1,4 @@
-This is a simple Twitter bot to automate the following of users based on terms in their tweets and number of followers.
+This is a simple Twitter bot to automate the following and unfollowing based on keywords in tweets and follower/following numbers.
 
 # Install
 
@@ -7,13 +7,14 @@ This is a simple Twitter bot to automate the following of users based on terms i
 
 # Usage
 
+In this package, each handle requires corresponding twitter  credentials and has its own config entry. 
+
 Create and fill a credentials.json and config.json, based on the example file of each, before running main.py. You will need to get the Twitter API keys from their developer portal.
 
-In this package, each 'account' has a corresponding twitter handle, credentials, and config entry. 
 
 ### Follow accounts based on search terms in the config:
-`python main.py -a <account`>
+`python follow.py -h <handle`>
 
 
 ### Unfollow accounts:
-`python unfollow.py -a <account>`
+`python unfollow.py -h <handle>`
