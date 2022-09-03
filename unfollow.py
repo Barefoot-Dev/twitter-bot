@@ -26,19 +26,23 @@ if __name__ == "__main__":
     print("\nbeginning unfollow bot for handle:", handle)
 
     following = []
-    for page in tqdm(
-        tweepy.Cursor(api.get_friend_ids, screen_name=handle).pages(),
+    for users in tqdm(
+        tweepy.Cursor(api.get_friends, screen_name=handle).pages(),
         "getting current following list",
     ):
-        following.extend(page)
+        following.extend([u.screen_name for u in users])
         time.sleep(10)  # api rate limit
 
     print("found {} accounts following".format(len(following)))
 
     dont_unfollow = config["accounts"][handle]["dont_unfollow"]
-    print("skipping {} accounts in the dont_unfollow list".format(len(dont_unfollow)))
     following = [
-        f for f in following if api.get_user(user_id=f).screen_name not in dont_unfollow
+        f
+        for f in tqdm(
+            following,
+            "skipping {} accounts in the dont_unfollow list".format(len(dont_unfollow)),
+        )
+        if f not in dont_unfollow
     ]
 
     # unfollow random accounts
@@ -51,6 +55,6 @@ if __name__ == "__main__":
     )
     for i in tqdm(range(unfollow_count)):
         # pop a random account from the following list
-        user_id = following.pop(random.randint(0, len(following) - 1))
-        api.destroy_friendship(user_id=user_id)
+        screen_name = following.pop(random.randint(0, len(following) - 1))
+        api.destroy_friendship(screen_name=screen_name)
         time.sleep(60)  # api rate limit
