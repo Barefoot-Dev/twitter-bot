@@ -13,7 +13,7 @@ Create and fill a credentials.json and config.json, based on the example file of
 
 
 ### Follow accounts based on search terms in the config:
-`python follow.py -h <handle`>
+`python follow.py -h <handle>`
 
 
 ### Unfollow accounts:
