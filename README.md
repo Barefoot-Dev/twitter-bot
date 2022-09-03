@@ -18,3 +18,7 @@ Create and fill a credentials.json and config.json, based on the example file of
 
 ### Unfollow accounts:
 `python unfollow.py -h <handle>`
+
+
+# Config
+- dont_unfollow = list of twitter handles to not unfollow

@@ -37,7 +37,9 @@ if __name__ == "__main__":
 
     dont_unfollow = config["accounts"][handle]["dont_unfollow"]
     print("removing {} accounts in the dont_unfollow list".format(len(dont_unfollow)))
-    following = [f for f in following if f not in dont_unfollow]
+    following = [
+        f for f in following if api.get_user(user_id=f).screen_name not in dont_unfollow
+    ]
 
     # unfollow random accounts
     unfollow_count = int(len(following) * config["unfollow_percent"])
